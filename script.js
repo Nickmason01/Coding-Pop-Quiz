@@ -1,47 +1,58 @@
 var startButton =document.querySelector(".start-button");
-var timerEl =document.querySelector(".timer-option");
+var timerEl =document.querySelector("#timer-text");
 var highScore = document.querySelector(".score-btn");
-var questionText = document.getElementById("#questions-option");
-var answerOptions = document.querySelectorAll(".answer-options");
+var questionText = document.getElementById("questions-text");
+var answerOptions = document.querySelector(".answer-options");
 
 var timerCount;
 var timer;
-var question = []
-var indexQuestion= 0 
-
+//var question = []
+var indexQuestion = 0; 
+var score = 0;
 var possibleQuestions = [
     
     {
         question : "Commonly used data types DO NOT include",
-            optionA: "Boolean", 
-            optionB : "numbers",
-            optionC : "strings", 
-            optionD: "alerts", 
-             correct: "alerts"
-            
+        options : [ 
+            "Boolean",
+            "numbers",
+            "strings",
+            "alerts",
+
+
+
+        ],
+        answer: "alerts"
+           
         
         
     },
 
     {
         question: "The condition of an If/Else statement is enclosed within ",
-            optionA : "commas", 
-            optionB: "quotes", 
-            optionC: "parentheses", 
-            optionD : "curly brackets", 
-            correct: "parentheses"
-            
+        options : [
+            "commas",
+            "quotes",
+            "parentheses",
+            "curly brackets",
+
+        ],
+        answer: "parentheses"
+           
         
        
     },
 
     {
         question : "Arrays in Javascript can be used to store ",
-            optionA : "numbers and strings",
-             optionB: "other arrays", 
-            optionC: "booleans", 
-            optionD : "all the above",
-            correct : "all of the above"
+        options : [
+            "numbers and strings",
+            "other arrays",
+            "booleans",
+            "all the above",
+        ], 
+        answer: "all of the above"
+            
           
         
        
@@ -49,23 +60,29 @@ var possibleQuestions = [
 
     {
         question : "String values must be enclosed by _____ when assigned as values",
-            optionA: "parentheses", 
-            optionB: "quotes", 
-            optionC: "sqaure brackets", 
-            optionD :"none of the above",
-            correct : "quotes"
-            
+        options : [
+            "parentheses",
+            "quotes",
+            "square brackets",
+            "none of the above",
+
+        ],
+        answer:"quotes"
+           
         
     },
 
     {
         question : "A very useful tool during development and debugging for printing content to the debugger is", 
-            optionA: "HTML",
-            optionB: "for loops",
-            optionC: "console.log",
-            optionD : "Javascript",
-            correct : "console.log"
-            
+        options : [
+            "HTML",
+            "for loops",
+            "console.log",
+            "Javascript",
+
+        ],
+        answer: "console.log"
+           
         
      
     },
@@ -98,16 +115,38 @@ function startTimer() {
 
 
 function renderQuestion () {
-currentQuestion =possibleQuestions[indexQuestion];
-question.textContent =currentQuestion.question;
-for (index =0; index < currentQuestion.length, i++);
+ var currentQuestion = possibleQuestions[indexQuestion];
+ questionText.textContent = currentQuestion.question;
+  for (let index = 0; index < currentQuestion.options.length; index++) {
+ var button = document.createElement("button");
+ button.textContent = currentQuestion.options[index];
+ answerOptions.appendChild(button);
+}
+
 
 }
+console.log(renderQuestion);
 
 function userAnswer () {
+    var currentAnswers=possibleQuestions[indexQuestion];
+    answerOptions.textContent=currentAnswers.options;
+    for(let index =0; index < currentAnswers.options.length; index++){
+        if(timerCount ===0){
+            return;
+        }
+    
+    
+        if(answerOptions === answer){
+            score++;
+        }
+
+    }
+
+   
+
 
 }
-
+console.log (score)
 function nextQuestion () {
     
 }
@@ -120,3 +159,4 @@ function gameOver () {
 
 
 startButton.addEventListener("click", startQuiz);
+answerOptions.addEventListener("click", userAnswer);
