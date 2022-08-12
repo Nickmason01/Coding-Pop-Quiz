@@ -177,5 +177,5 @@ function highScores () {
 
 
 startButton.addEventListener("click", startQuiz);
-scoresBtn.addEventListener("click", highScores);
+scoresBtn.addEventListener("click", highScores)
 
