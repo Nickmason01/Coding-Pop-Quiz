@@ -45,6 +45,26 @@ h1 {
     align-items: center;
   }
   
+  /* .answer-options button {
+    background: rgb(140, 102, 176);
+    border-radius: 8px;
+    color: #000000;
+    cursor: pointer;
+    font-size: 2em;
+     letter-spacing: 0.21px;
+    line-height: 16px;
+    max-width: 100%;
+    padding: 20px 52px;
+    text-align: center;
+    transition-duration: 0.15s;
+    transition-property: background-color;
+    transition-timing-function: linear;
+    margin-left: 650px;
+    margin-top: 0.6em;
+    justify-content: center;
+    align-items: center; 
+
+  } */
 .scores-btn {
     border: none;
     background: none;
